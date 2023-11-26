@@ -20,7 +20,7 @@ export class ToDoPage extends BasePage {
 
   constructor(
     private url: string = "https://demo.playwright.dev/todomvc",
-    tabName: string = "React • TodoMVC"
+    tabName: string = "React • TodoMVC",
   ) {
     super(url, tabName, baseSelector);
     let texts = translation();
@@ -43,7 +43,10 @@ export class ToDoPage extends BasePage {
 
   async addToDo(toDoEntity: ToDoEntity) {
     await this.toDoInput.fill(toDoEntity.taskName);
-    await playwrightObject.page().locator(this.toDoInput.selector).press(Keys.ENTER);
+    await playwrightObject
+      .page()
+      .locator(this.toDoInput.selector)
+      .press(Keys.ENTER);
   }
 
   async finishTask(toDoEntity: ToDoEntity) {

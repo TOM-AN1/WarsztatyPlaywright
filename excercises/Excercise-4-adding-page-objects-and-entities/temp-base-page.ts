@@ -30,7 +30,10 @@ export abstract class BasePage {
     await this.page.waitForURL(url);
   }
 
-  async waitForLoadState(state?: "load" | "domcontentloaded" | "networkidle", options?: { timeout?: number }) {
+  async waitForLoadState(
+    state?: "load" | "domcontentloaded" | "networkidle",
+    options?: { timeout?: number },
+  ) {
     await this.page.waitForLoadState(state);
   }
 
@@ -45,7 +48,7 @@ export abstract class BasePage {
     if (!this.partialUrl) {
       throw new Error("Can't checkUrl because uri is not specified");
     }
-    await this.page.waitForURL(this.partialUrl + '/#/');
+    await this.page.waitForURL(this.partialUrl + "/#/");
   }
 
   async validateTabName() {

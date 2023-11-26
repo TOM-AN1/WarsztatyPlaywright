@@ -1,5 +1,6 @@
 export const getRandomString = (length: number, lettersOnly?: boolean) => {
-  let characters: string = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+  let characters: string =
+    "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
   if (lettersOnly != null && !lettersOnly) {
     characters += "0123456789";
   }

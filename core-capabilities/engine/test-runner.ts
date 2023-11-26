@@ -2,7 +2,7 @@ import { test as base } from "@playwright/test";
 import { ToDoPage } from "core-capabilities/page-objects/to-do-page";
 import playwrightObject from "./playwright-object";
 
-export const test = base.extend<{ todoPage: ToDoPage, initNew: void }>({
+export const test = base.extend<{ todoPage: ToDoPage; initNew: void }>({
   todoPage: async ({ browser, browserName, playwright }, testFunction) => {
     await playwrightObject.initNew({
       playwrightBrowser: browser,

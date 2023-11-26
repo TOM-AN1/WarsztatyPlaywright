@@ -102,8 +102,8 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-  globalSetup: require.resolve('./global-setup'),
-  outputDir: 'test-results/',
+  globalSetup: require.resolve("./global-setup"),
+  outputDir: "test-results/",
 };
 
 export default config;

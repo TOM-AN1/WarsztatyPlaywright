@@ -41,7 +41,9 @@ export class PlaywrightObject {
 
   async open(url: string) {
     if (!this.page) {
-      throw new Error("Cannot open page when it is not existing in given context");
+      throw new Error(
+        "Cannot open page when it is not existing in given context",
+      );
     }
     await this.page().goto(url);
   }
@@ -55,12 +57,12 @@ export class PlaywrightObject {
   }
 
   async closeTab(index: number) {
-    await this.context?.pages()[index].close()
+    await this.context?.pages()[index].close();
   }
 
   async openNewPage() {
     this.context = await this.browser?.newContext();
-    await this.context?.newPage()
+    await this.context?.newPage();
   }
 
   async switchPage(index: number) {

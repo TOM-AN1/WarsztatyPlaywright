@@ -10,16 +10,15 @@ const baseSelector = ".todoapp";
 const translation = () => getConfig().translations;
 
 export class ToDoPage extends BasePage {
-
-  title: string
+  title: string;
 
   constructor(
     protected page: Page,
     private url: string = "https://demo.playwright.dev/todomvc",
-    tabName: string = "React • TodoMVC"
+    tabName: string = "React • TodoMVC",
   ) {
     super(page, url, tabName, baseSelector);
-    this.title = translation().header
+    this.title = translation().header;
   }
 
   async open(): Promise<void> {
@@ -28,18 +27,20 @@ export class ToDoPage extends BasePage {
   }
 
   async validatePage(entity: ToDoEntity): Promise<void> {
-    expect(await this.page.locator('h1').innerText()).toEqual(this.title)
-    await this.validateToDo(entity, 1)
+    expect(await this.page.locator("h1").innerText()).toEqual(this.title);
+    await this.validateToDo(entity, 1);
   }
 
   async addToDo(entity: ToDoEntity): Promise<void> {
-    await this.page.locator('[class="new-todo"]').fill(entity.taskName)
-    await this.page.locator('[class="new-todo"]').press(Keys.ENTER)
+    await this.page.locator('[class="new-todo"]').fill(entity.taskName);
+    await this.page.locator('[class="new-todo"]').press(Keys.ENTER);
   }
 
   async validateToDo(entity: ToDoEntity, index: number) {
-    let locator = `.todo-list li:nth-child(${index})`
-    expect(await this.page.locator(`${locator} label`).innerText()).toEqual(entity.taskName)
+    let locator = `.todo-list li:nth-child(${index})`;
+    expect(await this.page.locator(`${locator} label`).innerText()).toEqual(
+      entity.taskName,
+    );
     if (entity.isCompleted) {
       await expect(this.page.locator(locator)).toHaveClass("completed");
     } else {

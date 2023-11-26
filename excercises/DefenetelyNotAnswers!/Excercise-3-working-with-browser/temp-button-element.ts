@@ -3,7 +3,9 @@ import { BaseElement } from "./temp-base-element";
 
 export class ButtonElement extends BaseElement {
   constructor(
-    public selector: string, protected page: Page, public label: string,
+    public selector: string,
+    protected page: Page,
+    public label: string,
   ) {
     super(selector, page);
   }

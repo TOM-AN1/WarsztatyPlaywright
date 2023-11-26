@@ -1,5 +1,9 @@
 import { FullConfig } from "@playwright/test";
-import { getTranslations, Languages, Translation } from "core-capabilities/translations/translation";
+import {
+  getTranslations,
+  Languages,
+  Translation,
+} from "core-capabilities/translations/translation";
 
 const language: Languages = Languages.ENGLISH;
 export const SMOKE_TEST = "@smoke";
@@ -7,7 +11,9 @@ export const SMOKE_TEST = "@smoke";
 export class Config {
   private static instance: Config;
 
-  shouldLogData: boolean = process.env.LOG_DATA ? getEnvironmentVariableAsBoolean(process.env.LOG_DATA) : true;
+  shouldLogData: boolean = process.env.LOG_DATA
+    ? getEnvironmentVariableAsBoolean(process.env.LOG_DATA)
+    : true;
   appUrl: string = ``;
   language: Languages = language;
   translations: Translation = getTranslations(language);
@@ -39,6 +45,8 @@ export const getConfig = (): Config => {
   return Config.getInstance();
 };
 
-export const getEnvironmentVariableAsBoolean = (variable: string | undefined): boolean => {
+export const getEnvironmentVariableAsBoolean = (
+  variable: string | undefined,
+): boolean => {
   return variable === "true";
 };

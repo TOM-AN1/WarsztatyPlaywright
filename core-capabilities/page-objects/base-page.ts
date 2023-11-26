@@ -5,7 +5,7 @@ export abstract class BasePage {
   protected constructor(
     protected partialUrl?: string,
     protected tabName?: string,
-    public pageSelector?: string
+    public pageSelector?: string,
   ) {}
 
   async openUrl(url: string) {
@@ -30,7 +30,10 @@ export abstract class BasePage {
     await playwrightObject.page().waitForURL(url);
   }
 
-  async waitForLoadState(state?: "load" | "domcontentloaded" | "networkidle", options?: { timeout?: number }) {
+  async waitForLoadState(
+    state?: "load" | "domcontentloaded" | "networkidle",
+    options?: { timeout?: number },
+  ) {
     await playwrightObject.page().waitForLoadState(state);
   }
 
@@ -45,7 +48,7 @@ export abstract class BasePage {
     if (!this.partialUrl) {
       throw new Error("Can't checkUrl because uri is not specified");
     }
-    await playwrightObject.page().waitForURL(this.partialUrl + '/#/');
+    await playwrightObject.page().waitForURL(this.partialUrl + "/#/");
   }
 
   async validateTabName() {

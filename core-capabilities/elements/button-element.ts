@@ -5,7 +5,7 @@ import { BaseElement } from "./base-element";
 export class ButtonElement extends BaseElement {
   constructor(
     selector: string,
-    public label: string
+    public label: string,
   ) {
     super(selector);
   }
@@ -13,7 +13,9 @@ export class ButtonElement extends BaseElement {
   public async clickAndWaitForResponse(partialUrl: string) {
     const response = playwrightObject
       .page()
-      .waitForResponse((url) => url.url().includes(partialUrl), { timeout: 1000 });
+      .waitForResponse((url) => url.url().includes(partialUrl), {
+        timeout: 1000,
+      });
     await this.element().waitFor({ state: "visible" });
     expect((await response).ok()).toBeTruthy();
   }
@@ -29,6 +31,9 @@ export class ButtonElement extends BaseElement {
   }
 }
 
-export function getButtonElement(selector: string, label: string): ButtonElement {
+export function getButtonElement(
+  selector: string,
+  label: string,
+): ButtonElement {
   return new ButtonElement(selector, label);
 }

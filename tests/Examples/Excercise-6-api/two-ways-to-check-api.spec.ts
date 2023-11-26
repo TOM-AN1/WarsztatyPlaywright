@@ -20,15 +20,17 @@ test.describe("Check toDo page", () => {
   for (let [index, value] of [firstTask].entries()) {
     test(`Send request ${index}`, async ({ initNew }) => {
       // Get request
-      console.log((await (await getToDoPageRequest()).body()).toString())
+      console.log((await (await getToDoPageRequest()).body()).toString());
     });
 
     test(`Catch request ${index}`, async ({ initNew }) => {
       // Catch request
       let openPage = toDoPage.open();
-      const response = playwrightObject.page().waitForResponse((url) => url.url().includes('/todomvc/'));
-      console.log((await (await response).body()).toString())
-      await openPage
+      const response = playwrightObject
+        .page()
+        .waitForResponse((url) => url.url().includes("/todomvc/"));
+      console.log((await (await response).body()).toString());
+      await openPage;
     });
   }
 });

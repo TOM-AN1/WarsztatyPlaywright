@@ -1,24 +1,22 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export abstract class BaseElement {
-  constructor(public selector: string, protected page: Page) {}
+  constructor(
+    public selector: string,
+    protected page: Page,
+  ) {}
 
   element(): Locator {
     return this.page.locator(this.selector);
   }
 
-  public async toBeVisible() {
-  }
+  public async toBeVisible() {}
 
-  public async toBeHidden() {
-  }
+  public async toBeHidden() {}
 
-  public async toBeEnabled() {
-  }
+  public async toBeEnabled() {}
 
-  public async toBeDisabled() {
-  }
+  public async toBeDisabled() {}
 
-  async click() {
-  }
+  async click() {}
 }

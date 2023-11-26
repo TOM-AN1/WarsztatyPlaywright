@@ -6,7 +6,10 @@ export class InputElement extends BaseElement {
     super(selector);
   }
 
-  async fill(value: string, options?: { force?: boolean; noWaitAfter?: boolean; timeout?: number }) {
+  async fill(
+    value: string,
+    options?: { force?: boolean; noWaitAfter?: boolean; timeout?: number },
+  ) {
     await this.element().fill(value, options);
   }
 

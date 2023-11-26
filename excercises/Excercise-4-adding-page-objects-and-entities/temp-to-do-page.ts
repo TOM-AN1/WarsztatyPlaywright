@@ -6,16 +6,15 @@ import { BasePage } from "./temp-base-page";
 const baseSelector = ".todoapp";
 
 export class ToDoPage extends BasePage {
-
-  title: string
+  title: string;
 
   constructor(
     protected page: Page,
     private url: string = "https://demo.playwright.dev/todomvc",
-    tabName: string = "React • TodoMVC"
+    tabName: string = "React • TodoMVC",
   ) {
     super(page, url, tabName, baseSelector);
-    this.title = 'todos'
+    this.title = "todos";
   }
 
   async open(): Promise<void> {
@@ -24,6 +23,6 @@ export class ToDoPage extends BasePage {
   }
 
   async validatePage(): Promise<void> {
-    expect(await this.page.locator('h1').innerText()).toEqual(this.title)
+    expect(await this.page.locator("h1").innerText()).toEqual(this.title);
   }
 }

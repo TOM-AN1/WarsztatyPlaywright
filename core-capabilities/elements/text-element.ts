@@ -3,7 +3,7 @@ import { BaseElement } from "./base-element";
 export class TextElement extends BaseElement {
   constructor(
     selector: string,
-    public text: string
+    public text: string,
   ) {
     super(selector);
   }

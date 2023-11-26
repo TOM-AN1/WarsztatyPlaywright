@@ -1,10 +1,10 @@
 import { expect, Locator, Page } from "@playwright/test";
 
 export abstract class BaseElement {
-
-  constructor(public selector: string, protected page: Page) {
-
-  }
+  constructor(
+    public selector: string,
+    protected page: Page,
+  ) {}
 
   element(): Locator {
     return this.page.locator(this.selector);

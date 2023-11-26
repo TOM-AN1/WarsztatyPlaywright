@@ -3,8 +3,14 @@ import { Keys } from "../../utils/keys";
 import { ToDoEntity } from "../../entities/to-do-entity";
 import { BaseElement } from "../../elements/base-element";
 import { ButtonElement, getButtonElement } from "../../elements/button-element";
-import { CheckboxElement, getCheckboxElement } from "../../elements/checkbox-element";
-import { DynamicTextElement, getDynamicTextElement } from "../../elements/dynamic-text-element";
+import {
+  CheckboxElement,
+  getCheckboxElement,
+} from "../../elements/checkbox-element";
+import {
+  DynamicTextElement,
+  getDynamicTextElement,
+} from "../../elements/dynamic-text-element";
 import { getInputElement, InputElement } from "../../elements/input-element";
 
 let baseSelector = ".todo-list li";
